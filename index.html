@@ -24,6 +24,17 @@
             font-size: 1.5em;
         }
 
+        .profile-container {
+            margin: 2em 0;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
         .badges-container {
             display: flex;
             justify-content: center;
@@ -40,10 +51,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 2em 0;
         }
 
         .stats-img {
             margin-top: 1em;
+        }
+
+        .contact-container {
+            margin: 2em 0;
+        }
+
+        .contact-info {
+            font-size: 1.2em;
+            margin-top: 0.5em;
         }
     </style>
 </head>
@@ -53,24 +74,28 @@
         <h1>🛠️ Languages And Tools 🛠️</h1>
     </header>
 
+    <div class="profile-container">
+        <img class="profile-img" src="URL_TO_YOUR_PROFILE_IMAGE" alt="Profile Image">
+        <h2>Your Name</h2>
+        <p>Your Bio or Description</p>
+    </div>
+
     <div class="badges-container">
-        <img class="badge" src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
-        <img class="badge" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge">
-        <img class="badge" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB">
-        <img class="badge" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white">
-        <img class="badge" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white">
+        <!-- Your badges go here -->
     </div>
 
     <div class="stats-container">
+        <h2>GitHub Stats</h2>
         <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=miljte&layout=compact&hide=html" alt="miljte">
         <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=miljte&show_icons=true" alt="miljte">
+    </div>
+
+    <div class="contact-container">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <p>Discord: .xp.#1234</p>
+            <!-- Add more contact information as needed -->
+        </div>
     </div>
 </body>
 
