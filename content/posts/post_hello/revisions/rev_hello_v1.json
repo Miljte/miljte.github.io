@@ -1,0 +1,16 @@
+{
+  "id": "rev_hello_v1",
+  "postId": "post_hello",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "title": "Hello. This is a Gravity Feed.",
+  "summary": "A timeline you can feel.",
+  "body": {
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "This is not a portfolio page. It’s a living field: posts have mass, depth, and relationships. Hover to stabilize. Click to focus."
+      }
+    ]
+  },
+  "embeds": {}
+}

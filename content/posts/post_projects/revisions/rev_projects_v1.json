@@ -1,0 +1,19 @@
+{
+  "id": "rev_projects_v1",
+  "postId": "post_projects",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "title": "Projects",
+  "summary": "Artifacts with gravity.",
+  "sectionKind": "projects",
+  "body": {
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Projects appear as heavy objects in the field. Clicking one pulls related posts into orbit." 
+      }
+    ]
+  },
+  "embeds": {
+    "projectIds": []
+  }
+}

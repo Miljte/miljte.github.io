@@ -1,0 +1,17 @@
+{
+  "id": "rev_experience_v1",
+  "postId": "post_experience",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "title": "Experience",
+  "summary": "Shipped systems, not slides.",
+  "sectionKind": "experience",
+  "body": {
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "This section will become a set of threaded posts per role/project, each with measurable outcomes and artifacts." 
+      }
+    ]
+  },
+  "embeds": {}
+}

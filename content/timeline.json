@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2025-12-24T00:00:00.000Z",
+  "pinned": [
+    "post_about",
+    "post_projects",
+    "post_skills",
+    "post_experience"
+  ],
+  "order": [
+    "post_hello",
+    "post_about",
+    "post_projects",
+    "post_skills",
+    "post_experience",
+    "post_now"
+  ]
+}
