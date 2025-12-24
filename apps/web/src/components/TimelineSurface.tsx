@@ -4,10 +4,12 @@ import { FeedItem } from "@/lib/content/schema";
 import { useFieldStore } from "@/lib/motion/fieldStore";
 import { usePrefersReducedMotion } from "@/lib/motion/reducedMotion";
 import { IconInfo, IconKeyboard, IconPin, IconZap } from "@/components/icons";
+import { AvatarOrb } from "@/components/AvatarOrb";
 import { useEffect, useMemo } from "react";
 import { PostCard } from "./PostCard";
+import type { GitHubProfile } from "@/lib/github/server";
 
-export function TimelineSurface({ items }: { items: FeedItem[] }) {
+export function TimelineSurface({ items, profile }: { items: FeedItem[]; profile: GitHubProfile }) {
   const setPointer = useFieldStore((s) => s.setPointer);
   const focus = useFieldStore((s) => s.focus);
   const likeImpulse = useFieldStore((s) => s.likeImpulse);
@@ -76,6 +78,15 @@ export function TimelineSurface({ items }: { items: FeedItem[] }) {
 
             <div className="mt-3 text-sm text-white/70">
               A feed first. Motion second.
+            </div>
+
+            <div className="mt-4">
+              <AvatarOrb src={profile.avatarUrl} alt={profile.name ?? profile.login} href={profile.htmlUrl} />
+              <div className="mt-2 text-sm text-white/85">
+                {profile.name ?? profile.login}
+                <span className="ml-2 text-xs text-white/45">@{profile.login}</span>
+              </div>
+              {profile.bio ? <div className="mt-1 text-sm text-white/65">{profile.bio}</div> : null}
             </div>
 
             <div className="mt-4 text-xs text-white/55">
