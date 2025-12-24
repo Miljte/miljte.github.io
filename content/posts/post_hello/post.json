@@ -1,0 +1,21 @@
+{
+  "id": "post_hello",
+  "type": "text",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "updatedAt": "2025-12-24T00:00:00.000Z",
+  "status": "published",
+  "visibility": "public",
+  "mass": 0.62,
+  "tags": [
+    "intro"
+  ],
+  "thread": {
+    "replyIds": []
+  },
+  "pointers": {
+    "publishedRevisionId": "rev_hello_v1"
+  },
+  "engagement": {
+    "likeCount": 0
+  }
+}

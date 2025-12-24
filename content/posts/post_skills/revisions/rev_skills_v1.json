@@ -1,0 +1,24 @@
+{
+  "id": "rev_skills_v1",
+  "postId": "post_skills",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "title": "Skills",
+  "summary": "Tooling as a palette.",
+  "sectionKind": "skills",
+  "body": {
+    "blocks": [
+      {
+        "type": "list",
+        "style": "bullets",
+        "items": [
+          "React + TypeScript (product-grade systems)",
+          "Motion: Framer Motion, GSAP", 
+          "3D/WebGL: Three.js, React Three Fiber", 
+          "API design: REST, auth, RBAC", 
+          "Performance: 60fps budgets, virtualization"
+        ]
+      }
+    ]
+  },
+  "embeds": {}
+}

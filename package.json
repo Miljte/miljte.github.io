@@ -1,0 +1,12 @@
+{
+  "name": "miljte-platform",
+  "private": true,
+  "packageManager": "pnpm@10.26.2",
+  "description": "Gravity Feed personal platform (web + API)",
+  "scripts": {
+    "dev": "pnpm -C apps/web dev",
+    "build": "pnpm -C apps/web build",
+    "start": "pnpm -C apps/web start",
+    "lint": "pnpm -C apps/web lint"
+  }
+}

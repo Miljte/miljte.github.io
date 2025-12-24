@@ -1,0 +1,21 @@
+{
+  "id": "rev_about_v1",
+  "postId": "post_about",
+  "createdAt": "2025-12-24T00:00:00.000Z",
+  "title": "About",
+  "summary": "A human profile, rendered as a system.",
+  "sectionKind": "about",
+  "body": {
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "I build products where motion is meaning, and interfaces feel alive. This feed is my identity as a field: evolving, linkable, and versioned." 
+      },
+      {
+        "type": "paragraph",
+        "text": "If you’re hiring: treat this like a product demo. The timeline is the UI; the physics is the story." 
+      }
+    ]
+  },
+  "embeds": {}
+}
