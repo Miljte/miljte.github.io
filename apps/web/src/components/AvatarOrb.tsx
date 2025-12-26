@@ -48,48 +48,48 @@ export function AvatarOrb({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative inline-flex items-center gap-3"
+      className="group relative inline-flex items-center gap-3 transition-transform hover:scale-[1.02]"
       aria-label="Open GitHub profile"
     >
       <motion.div
-        className="relative h-12 w-12"
+        className="relative h-16 w-16"
         style={{ rotateX: prefersReducedMotion ? 0 : tiltX, rotateY: prefersReducedMotion ? 0 : tiltY }}
       >
         <motion.div
-          className="absolute inset-0 rounded-full border border-white/15"
+          className="absolute inset-0 rounded-full border-2 border-white/25"
           variants={ringVariants}
           animate={prefersReducedMotion ? "rest" : "active"}
-          transition={{ duration: 18, ease: "linear", repeat: Infinity }}
-          style={{ opacity: prefersReducedMotion ? 0.8 : 0.7 }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+          style={{ opacity: prefersReducedMotion ? 0.9 : 0.8 }}
         />
 
         <motion.div
           className="absolute inset-0 rounded-full"
           style={{
-            boxShadow: "0 0 0 1px rgba(255,255,255,0.10)",
-            opacity: prefersReducedMotion ? 0.25 : 0.25
+            boxShadow: "0 0 0 1px rgba(255,255,255,0.2), 0 6px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2)",
+            opacity: prefersReducedMotion ? 0.3 : 0.5
           }}
         />
 
         <motion.div
-          className="absolute inset-[2px] overflow-hidden rounded-full border border-white/10 bg-white/5"
-          animate={prefersReducedMotion ? undefined : { scale: [1, 1 + 0.02 * (0.2 + energy), 1] }}
-          transition={{ duration: 1.1, ease: "easeInOut", repeat: prefersReducedMotion ? 0 : Infinity }}
+          className="absolute inset-[3px] overflow-hidden rounded-full border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-xl"
+          animate={prefersReducedMotion ? undefined : { scale: [1, 1 + 0.03 * (0.2 + energy), 1] }}
+          transition={{ duration: 1.2, ease: "easeInOut", repeat: prefersReducedMotion ? 0 : Infinity }}
         >
-          <Image src={src} alt={alt} fill sizes="48px" className="object-cover opacity-95" />
+          <Image src={src} alt={alt} fill sizes="64px" className="object-cover opacity-95" />
         </motion.div>
 
         <motion.div
-          className="pointer-events-none absolute -inset-2 rounded-full"
+          className="pointer-events-none absolute -inset-4 rounded-full"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%)",
+              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3), rgba(255,255,255,0) 65%)",
             opacity: prefersReducedMotion ? 0 : glow
           }}
         />
       </motion.div>
 
-      <span className="text-sm font-medium text-white/90 group-hover:text-white">GitHub</span>
+      <span className="text-sm font-semibold tracking-tight text-white/85 transition-colors group-hover:text-white">GitHub</span>
     </a>
   );
 }
