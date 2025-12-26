@@ -1,75 +1,68 @@
 "use client";
 
 import { FeedItem } from "@/lib/content/schema";
-import { useFieldStore } from "@/lib/motion/fieldStore";
-import { IconChevronRight, IconHeart, IconPin } from "@/components/icons";
+import { IconPin } from "@/components/icons";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import Image from "next/image";
+import type { GitHubProfile } from "@/lib/github/server";
 
-export function PostCard({ item, onClick }: { item: FeedItem; onClick: () => void }) {
+export function PostCard({ item, onClick, profile }: { item: FeedItem; onClick: () => void; profile?: GitHubProfile }) {
   const isSection = item.post.type === "section";
   const title = item.revision.title ?? item.post.id;
-  const toggleLike = useFieldStore((s) => s.toggleLike);
-  const localLikes = useFieldStore((s) => s.likes[item.post.id] ?? 0);
-  const isLiked = useFieldStore((s) => !!s.liked[item.post.id]);
-
-  const massBadge = useMemo(() => {
-    const m = item.post.mass;
-    if (m > 0.9) return "anchor";
-    if (m > 0.7) return "heavy";
-    return "drift";
-  }, [item.post.mass]);
+  const createdDate = useMemo(() => new Date(item.post.createdAt).toLocaleDateString(), [item.post.createdAt]);
 
   return (
     <motion.article
       layout
-      whileHover={{ y: -1 }}
+      whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" }}
+      transition={{ type: "spring", stiffness: 320, damping: 26 }}
       className="group relative w-full rounded-2xl bg-transparent text-left"
     >
-      <div className="flex items-start justify-between gap-4">
-        <button
-          onClick={onClick}
-          className="min-w-0 flex-1 text-left focus:outline-none"
-          type="button"
-          aria-label={`Open ${title}`}
-        >
-          <div className="flex items-center gap-2">
+      <div className="flex items-start gap-3">
+        <div className="mt-0.5 h-10 w-10 overflow-hidden rounded-full border border-white/10 bg-white/5">
+          {profile?.avatarUrl ? (
+            <Image src={profile.avatarUrl} alt={profile.name ?? profile.login} width={40} height={40} />
+          ) : (
+            <div className="h-full w-full" />
+          )}
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-2 text-[13px]">
+            <span className="font-semibold tracking-tight text-white/95">{profile?.name ?? profile?.login ?? "Portfolio"}</span>
+            <span className="text-white/50">@{profile?.login ?? "me"}</span>
+            <span className="text-white/40">·</span>
+            <span className="text-white/50">{createdDate}</span>
             {item.isPinned ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[11px] tracking-wide text-white/80">
-                <IconPin className="h-3.5 w-3.5" />
-                pinned
+              <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-amber-600/15 px-2.5 py-0.5 text-[11px] font-medium text-amber-200/95 shadow-sm">
+                <IconPin className="h-3 w-3" /> pinned
               </span>
             ) : null}
-            <span className="rounded-full bg-white/10 px-2 py-1 text-[11px] tracking-wide text-white/75">{massBadge}</span>
             {isSection ? (
-              <span className="rounded-full bg-white/10 px-2 py-1 text-[11px] tracking-wide text-white/75">section</span>
+              <span className="inline-flex items-center gap-1 rounded-full border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-600/10 px-2.5 py-0.5 text-[11px] font-medium text-blue-200/90">section</span>
             ) : null}
           </div>
-          <h2 className="mt-2 text-[15px] font-semibold leading-5 text-white/95">{title}</h2>
-          {item.revision.summary ? <p className="mt-1 text-sm leading-6 text-white/70">{item.revision.summary}</p> : null}
-          <div className="mt-2 text-[11px] text-white/45">click to open</div>
-        </button>
 
-        <div className="flex shrink-0 flex-col items-end gap-2">
-          <div className="text-xs text-white/50">{new Date(item.post.createdAt).toLocaleDateString()}</div>
-          <motion.button
+          <button
+            onClick={onClick}
+            className="mt-2 block w-full rounded-lg px-0 py-1 text-left transition-colors hover:bg-white/[0.02] focus:outline-none focus:ring-2 focus:ring-white/15 focus:ring-offset-2 focus:ring-offset-black"
             type="button"
-            onClick={() => toggleLike(item.post.id)}
-            whileTap={{ scale: 0.96 }}
-            className={
-              "rounded-full border px-3 py-1.5 text-xs transition " +
-              (isLiked
-                ? "border-white/25 bg-white/15 text-white"
-                : "border-white/15 bg-white/10 text-white/85 hover:bg-white/15")
-            }
-            aria-pressed={isLiked}
-            aria-label={isLiked ? "Unlike" : "Like"}
+            aria-label={`Open ${title}`}
           >
-            <span className="inline-flex items-center gap-1.5">
-              <IconHeart className="h-4 w-4" />
-              like <span className="tabular-nums">{item.post.engagement.likeCount + localLikes}</span>
-            </span>
-          </motion.button>
+            <h2 className="text-[15px] font-semibold leading-6 tracking-tight text-white/95 group-hover:text-white">{title}</h2>
+            {item.revision.summary ? (
+              <p className="mt-1.5 text-sm leading-relaxed text-white/80">{item.revision.summary}</p>
+            ) : null}
+          </button>
+
+          {item.post.tags.length ? (
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-white/60">
+              {item.post.tags.map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/75">#{tag}</span>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </motion.article>

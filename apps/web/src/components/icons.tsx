@@ -86,3 +86,43 @@ export function IconKeyboard(props: IconProps) {
     </Svg>
   );
 }
+
+export function IconComment(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M21 15a4 4 0 0 1-4 4H8l-4 3V6a4 4 0 0 1 4-4h9a4 4 0 0 1 4 4v9Z" />
+    </Svg>
+  );
+}
+
+export function IconRepost(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M17 2v6h-6" />
+      <path d="M17 8 21 4" />
+      <path d="M7 22v-6h6" />
+      <path d="M7 16 3 20" />
+    </Svg>
+  );
+}
+
+export function IconShare(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <path d="M8.6 13.5 15.4 17.5" />
+      <path d="M15.4 6.5 8.6 10.5" />
+    </Svg>
+  );
+}
+
+export function IconPlus(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M12 5v14" />
+      <path d="M5 12h14" />
+    </Svg>
+  );
+}
