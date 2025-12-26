@@ -2,10 +2,26 @@
 
 ## to vercel (recommended)
 
-vercel auto-deploys from github. just push to main and it'll go live at https://miljte.github.io
+Monorepo setup (root + `apps/web`). Two options:
+
+1) Set root directory in Vercel (preferred)
+
+- Vercel Dashboard → Project → Settings → General
+- Root Directory: `apps/web`
+- Framework: Next.js
+- Install Command: `pnpm install --frozen-lockfile`
+- Build Command: `pnpm run build`
+- Output Directory: `.next` (auto)
+
+2) Use vercel.json at repo root (already added)
+
+- Vercel will run `pnpm install` at repo root and then `pnpm run build` which proxies to `apps/web`
+- No extra config needed in the dashboard
+
+Deploy from CLI (optional):
 
 ```bash
-vercel --prod
+pnpm dlx vercel --prod
 ```
 
 ## to github pages (manual)
