@@ -19,7 +19,7 @@ welcome to my corner of the web. this is where i keep my thoughts, projects, and
 
 ## how to reach me
 
-check the contact section on [my site](miljte.vercel.app) or find me on **github**.
+check the contact section on [my site](https://miljte.vercel.app) or find me on **github**.
 
 ---
 
